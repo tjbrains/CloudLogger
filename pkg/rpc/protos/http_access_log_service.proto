@@ -1,0 +1,18 @@
+syntax = "proto3";
+option go_package = "./pb";
+
+package pb;
+
+import "http_access_log.proto";
+
+service HttpAccessLogService {
+	rpc createHttpAccessLogs (CreateHttpAccessLogsRequest) returns (CreateHttpAccessLogsResponse);
+}
+
+message CreateHttpAccessLogsRequest {
+	repeated HttpAccessLog httpAccessLogs = 1;
+}
+
+message CreateHttpAccessLogsResponse {
+
+}
