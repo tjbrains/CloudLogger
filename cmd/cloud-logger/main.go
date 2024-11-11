@@ -11,7 +11,7 @@ import (
 func main() {
 	var app = apps.NewAppCmd().
 		Version(teaconst.Version).
-		Product(teaconst.ProductName + "-Node").
+		Product(teaconst.ProductName + "-Logger").
 		Usage(teaconst.ProcessName + " [-v|start|stop|restart|status]")
 
 	app.Run(func() {

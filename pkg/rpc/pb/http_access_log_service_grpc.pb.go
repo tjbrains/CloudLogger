@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	HttpAccessLogService_CreateHttpAccessLogs_FullMethodName = "/pb.HttpAccessLogService/createHttpAccessLogs"
+	HttpAccessLogService_CreateHttpAccessLogs_FullMethodName = "/logger.HttpAccessLogService/createHttpAccessLogs"
 )
 
 // HttpAccessLogServiceClient is the client API for HttpAccessLogService service.
@@ -94,7 +94,7 @@ func _HttpAccessLogService_CreateHttpAccessLogs_Handler(srv interface{}, ctx con
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var HttpAccessLogService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.HttpAccessLogService",
+	ServiceName: "logger.HttpAccessLogService",
 	HandlerType: (*HttpAccessLogServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

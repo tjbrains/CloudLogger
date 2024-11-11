@@ -41,7 +41,7 @@ func (this *Node) Start() {
 	// 启动rpc server
 	err := NewServer().Listen()
 	if err != nil {
-		remotelogs.Error("NODE", "listening server failed: " + err.Error())
+		remotelogs.Error("NODE", "listening server failed: "+err.Error())
 		return
 	}
 

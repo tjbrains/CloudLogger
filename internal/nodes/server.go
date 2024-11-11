@@ -3,6 +3,7 @@
 package nodes
 
 import (
+	"github.com/tjbrains/CloudLogger/internal/configs"
 	"github.com/tjbrains/CloudLogger/internal/remotelogs"
 	"github.com/tjbrains/CloudLogger/pkg/rpc/pb"
 	"github.com/tjbrains/CloudLogger/pkg/rpc/services"
@@ -30,11 +31,16 @@ func NewServer() *Server {
 }
 
 func (this *Server) Listen() error {
-	const port = 8010
+	config, err := configs.LoadConfig()
+	if err != nil {
+		remotelogs.Error("SERVER", "load config failed: "+err.Error())
+		remotelogs.Error("SERVER", "will use default config")
+		config = configs.DefaultConfig()
+	}
 
-	remotelogs.Println("SERVER", "listening ':"+types.String(port)+"' ...")
+	remotelogs.Println("SERVER", "listening ':"+types.String(config.Port)+"' ...")
 
-	listener, err := net.Listen("tcp", ":"+types.String(port))
+	listener, err := net.Listen("tcp", ":"+types.String(config.Port))
 	if err != nil {
 		return err
 	}

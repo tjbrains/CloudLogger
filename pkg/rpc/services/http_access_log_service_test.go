@@ -11,8 +11,10 @@ import (
 	"testing"
 )
 
+const rpcAddr = "192.168.2.61:8010"
+
 func TestHttpAccessLogService_CreateHttpAccessLogs(t *testing.T) {
-	client, err := grpc.NewClient("127.0.0.1:8010", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	client, err := grpc.NewClient(rpcAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -21,6 +23,7 @@ func TestHttpAccessLogService_CreateHttpAccessLogs(t *testing.T) {
 	_, err = service.CreateHttpAccessLogs(context.Background(), &pb.CreateHttpAccessLogsRequest{
 		HttpAccessLogs: []*pb.HttpAccessLog{
 			{
+				RequestId:     "1",
 				NodeId:        1,
 				RemoteAddr:    "127.0.0.1",
 				Host:          "example.com",
@@ -34,6 +37,7 @@ func TestHttpAccessLogService_CreateHttpAccessLogs(t *testing.T) {
 				TimeLocal:     "10/Nov/2024:15:24:06 +0800",
 			},
 			{
+				RequestId:     "2",
 				NodeId:        2,
 				RemoteAddr:    "127.0.0.1",
 				Host:          "example.com",
@@ -47,6 +51,7 @@ func TestHttpAccessLogService_CreateHttpAccessLogs(t *testing.T) {
 				TimeLocal:     "10/Nov/2024:15:24:06 +0800",
 			},
 			{
+				RequestId:     "3",
 				NodeId:        3,
 				RemoteAddr:    "127.0.0.1",
 				Host:          "example.com",
@@ -67,9 +72,9 @@ func TestHttpAccessLogService_CreateHttpAccessLogs(t *testing.T) {
 }
 
 func BenchmarkHttpAccessLogService_CreateHttpAccessLogs(b *testing.B) {
-	runtime.GOMAXPROCS(128)
+	runtime.GOMAXPROCS(1024)
 
-	client, err := grpc.NewClient("127.0.0.1:8010", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	client, err := grpc.NewClient(rpcAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -85,6 +90,7 @@ func BenchmarkHttpAccessLogService_CreateHttpAccessLogs(b *testing.B) {
 			_, createErr := service.CreateHttpAccessLogs(context.Background(), &pb.CreateHttpAccessLogsRequest{
 				HttpAccessLogs: []*pb.HttpAccessLog{
 					{
+						RequestId:     "1",
 						NodeId:        1,
 						RemoteAddr:    "127.0.0.1",
 						Host:          "example.com",
@@ -98,6 +104,7 @@ func BenchmarkHttpAccessLogService_CreateHttpAccessLogs(b *testing.B) {
 						TimeLocal:     "10/Nov/2024:15:24:06 +0800",
 					},
 					{
+						RequestId:     "2",
 						NodeId:        2,
 						RemoteAddr:    "127.0.0.1",
 						Host:          "example.com",
@@ -111,6 +118,7 @@ func BenchmarkHttpAccessLogService_CreateHttpAccessLogs(b *testing.B) {
 						TimeLocal:     "10/Nov/2024:15:24:06 +0800",
 					},
 					{
+						RequestId:     "3",
 						NodeId:        3,
 						RemoteAddr:    "127.0.0.1",
 						Host:          "example.com",
