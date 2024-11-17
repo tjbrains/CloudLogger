@@ -2,6 +2,10 @@
 
 访问日志接收服务Go语言示例，详情请参考 [访问日志接收服务](https://flexcdn.cn/docs/node/accesslog/endpoint) 。
 
+## 实现你自己的存储方式
+
+请修改 `pkg/rpc/services/http_access_log_service.go` 中的 `CreateHttpAccessLogs` 函数来实现你自己的存储方式。
+
 ## 编译
 
 使用 `build/build.sh` 即可编译：
