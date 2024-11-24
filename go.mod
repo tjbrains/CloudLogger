@@ -4,7 +4,7 @@ go 1.23
 
 require (
 	github.com/iwind/gosock v0.0.0-20220505115348-f88412125a62
-	github.com/tjbrains/TeaGo v1.0.0
+	github.com/tjbrains/TeaGo v1.0.3
 	golang.org/x/sys v0.27.0
 	google.golang.org/grpc v1.68.0
 	google.golang.org/protobuf v1.35.1

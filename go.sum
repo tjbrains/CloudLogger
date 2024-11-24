@@ -17,6 +17,8 @@ github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZV
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
 github.com/tjbrains/TeaGo v1.0.0 h1:f/2NEUaTsbvgubOHtnE7agElTsg1ie0VqKFiXNqGTcE=
 github.com/tjbrains/TeaGo v1.0.0/go.mod h1:9nsx7Kmlc4kp2aeu60+ej40jziMPUFUkZUV+hivx3ic=
+github.com/tjbrains/TeaGo v1.0.3 h1:8G4lR76jh0pA6Tf+X+A3zxGCvonAcHjHr5FZ+5+HrmY=
+github.com/tjbrains/TeaGo v1.0.3/go.mod h1:/zM/LtvNyA5a5OtZrvBw1f9Cc09pP3d3T3Rs86IYeZo=
 golang.org/x/net v0.31.0 h1:68CPQngjLL0r2AlUKiSxtQFKvzRVbnzLwMUn5SzcLHo=
 golang.org/x/net v0.31.0/go.mod h1:P4fl1q7dY2hnZFxEk4pPSkDHF+QqjitcnDjUQyMM+pM=
 golang.org/x/sys v0.27.0 h1:wBqf8DvsY9Y/2P8gAfPDEYNuS30J4lPHJxXSb/nJZ+s=
