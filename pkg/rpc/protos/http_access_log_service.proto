@@ -69,6 +69,7 @@ message HttpAccessLog {
 	// 源站相关
 	string originAddress = 41;
 	int32 originStatus = 52;
+	double originHeaderResponseTime = 53; // 源站报头响应时间（可以视为TTFB），单位秒
 
 	// 错误信息
 	repeated string errors = 42;
