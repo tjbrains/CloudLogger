@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-function build() {
+function BUILD() {
 	ROOT=$(dirname "$0")
 	NAME="cloud-logger"
-	VERSION=$(lookup-version "$ROOT"/../internal/const/const.go)
+	VERSION=$(LOOKUP_VERSION "$ROOT"/../internal/const/const.go)
 	DIST=$ROOT/"../dist/${NAME}"
 
 	OS=${1}
@@ -63,7 +63,7 @@ function build() {
 	echo "OK"
 }
 
-function lookup-version() {
+function LOOKUP_VERSION() {
 	FILE=$1
 	VERSION_DATA=$(cat "$FILE")
 	re="Version[ ]+=[ ]+\"([0-9.]+)\""
@@ -76,4 +76,4 @@ function lookup-version() {
 	fi
 }
 
-build "$1" "$2" "$3"
+BUILD "$1" "$2"
